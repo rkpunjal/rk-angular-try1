@@ -40,3 +40,21 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+
+
+
+
+# Intellij
+.idea
+*.iws
+*.class
+*.ids
+*.iml
+*.ipr
+*.iws
+.classpath
+.idea/
+
+.project
+.settings/
