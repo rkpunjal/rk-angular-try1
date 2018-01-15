@@ -18,9 +18,29 @@ export class ServersComponent implements OnInit {
 
   allowNewServer = false;
   serverCreationStatus = 'No Server was created';
+  serverName = 'Initial Value';
+  userName = '';
 
   onCreateServer(){
-    this.serverCreationStatus = 'Server was created !';
+    this.serverCreationStatus = 'Server was created ! : ' + this.serverName;
+  }
+
+  onUpdateServerName(event: any){
+  //  this.serverName = event.target.value;
+
+    // explicitly informing TS about target element type
+    this.serverName = (<HTMLInputElement>event.target).value;
+
+    console.log("serverName : " + this.serverName);
+    //console.log(event);
+  }
+
+  isUserNameEmpty(){
+    return this.userName === '';
+  }
+
+  resetUserName(){
+    this.userName = '';
   }
 
   constructor() {
