@@ -30,13 +30,9 @@
   <p >No server was created !</p>
 </ng-template>
 
-<app-server></app-server>
-<br/>
-<app-server></app-server>
-
+<app-server *ngFor="let server of servers"></app-server>
 
 <hr/>
-
 
 <label>User Name</label>
 <input
@@ -53,3 +49,25 @@
   (click)="resetUserName()"
 > Reset UserName </button>
 
+
+<br/><br/><br/>
+
+<button class="btn btn-primary" (click)="manageToggle()">Toggle Message</button>
+
+<p *ngIf="displayMessage">The Secret Message</p>
+
+<br/><br/>
+
+Log Items :
+
+
+  <p *ngFor="let logValue of logValues; let i = index"
+     [ngStyle]="{'background-color': getLogBackground(logValue)}"
+     [ngClass]="{whiteText: (logValue>=5)}"
+  >
+    {{ logValue }}  - index is {{i}}
+  </p>
+
+
+
+<br/><br/><br/>

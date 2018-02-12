@@ -21,10 +21,15 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'No Server was created';
   serverName = 'Initial Value';
   userName = '';
+  servers = ['server-1', 'server-2'];
+  displayMessage = true;
+  logValues = [];
 
   onCreateServer(){
     this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server was created ! : ' + this.serverName;
+
   }
 
   onUpdateServerName(event: any){
@@ -44,6 +49,17 @@ export class ServersComponent implements OnInit {
   resetUserName(){
     this.userName = '';
   }
+
+  manageToggle(){
+    this.displayMessage = !this.displayMessage;
+    this.logValues.push(this.logValues.length + 1);
+  }
+
+  getLogBackground(value){
+     return value >= 5 ? 'blue' : 'white';
+  }
+
+
 
   constructor() {
     setTimeout(() => {
